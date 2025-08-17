@@ -4,7 +4,7 @@ from app.models import User
 from app.schemas import UserCreate
 
 
-async def get_user_by_tg_id(db: AsyncSession, tg_id: int):
+async def get_user_by_tg_id(db: AsyncSession, tg_id: str):
     result = await db.execute(select(User).where(User.tg_id==tg_id))
     return result.scalars().first()
 
